@@ -157,7 +157,7 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 The following diagram illustrates the high-level workflow of the Retrieval-Augmented Generation (RAG) system implemented in this project:
 
-![RAG Workflow Diagram](ChatWithPdf.png)
+![RAG Workflow Diagram]([ChatWithPdf.png](https://github.com/atharvapadghan/Chat-With-PDF/issues/1#issue-3204980907))
 
 **Diagram Node to Code Mapping:**
 
