@@ -10,7 +10,7 @@ A sophisticated conversational chatbot built with Streamlit, LangChain, and Lang
 - **🎯 Question Refinement**: Automatically refines questions for better retrieval
 - **📊 Relevance Grading**: Evaluates document relevance before generating answers
 - **🔄 Multi-Step Reasoning**: Uses LangGraph for sophisticated workflow management
-- **🎨 Modern UI**: Beautiful, responsive Streamlit interface
+- **🎨 Modern UI**: Beautiful, responsive Streamlit interface with dark theme
 
 ## 🚀 Quick Start
 
@@ -80,14 +80,24 @@ The application uses a sophisticated multi-step workflow:
 - **Anthropic Claude**: Language model
 - **PyPDF2**: PDF file processing
 
-### File Structure
+### Modular File Structure
 ```
 multi-rag-chatbot/
-├── app.py              # Main Streamlit application
+├── app.py              # Main Streamlit application and UI
+├── rag_workflow.py     # LangGraph workflow and RAG logic
+├── document_utils.py   # Document processing and vector store creation
+├── ui_components.py    # UI configuration, CSS, and session state
 ├── requirements.txt    # Python dependencies
 ├── README.md           # This file
 └── .env                # Environment variables (create this)
 ```
+
+### Module Responsibilities
+
+- **`app.py`**: Main application entry point, handles user interactions and chat interface
+- **`rag_workflow.py`**: Contains the LangGraph workflow definition and model initialization
+- **`document_utils.py`**: Handles document processing, text extraction, and vector store creation
+- **`ui_components.py`**: Manages UI styling, page configuration, and session state initialization
 
 ## 🎯 Example Usage
 
@@ -106,20 +116,23 @@ multi-rag-chatbot/
 ## 🛠️ Customization
 
 ### Adding New File Types
-To support additional file formats, modify the `process_uploaded_files` function in `app.py`.
+To support additional file formats, modify the `process_uploaded_files` function in `document_utils.py`.
 
 ### Changing the Language Model
-Update the `model_name` parameter in the `ChatAnthropic` initialization.
+Update the `model_name` parameter in the `ChatAnthropic` initialization in `rag_workflow.py`.
 
 ### Adjusting Retrieval Parameters
-Modify the `search_kwargs` in the retriever configuration.
+Modify the `search_kwargs` in the retriever configuration in `document_utils.py`.
+
+### Modifying the UI
+Update the CSS styles and UI components in `ui_components.py`.
 
 ## 🐛 Troubleshooting
 
 ### Common Issues
 
 1. **API Key Error**: Make sure your `.env` file contains the correct Anthropic API key
-2. **Memory Issues**: For large documents, consider reducing chunk size
+2. **Memory Issues**: For large documents, consider reducing chunk size in `document_utils.py`
 3. **Slow Performance**: The first run may be slow due to model downloads
 4. **PDF Processing Error**: Ensure PyPDF2 is installed: `pip install PyPDF2`
 
