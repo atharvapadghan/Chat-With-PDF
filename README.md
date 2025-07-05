@@ -152,3 +152,36 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 ---
 
 **Happy Chatting! 🤖💬** 
+
+## RAG Workflow Structure
+
+The following diagram illustrates the high-level workflow of the Retrieval-Augmented Generation (RAG) system implemented in this project:
+
+![RAG Workflow Diagram](ChatWithPdf.png)
+
+**Diagram Node to Code Mapping:**
+
+- **question_rewriter**:  
+  Handled in `rag_workflow.py` – rewrites or reformulates user questions for better retrieval.
+- **question_classifier**:  
+  Implemented in `rag_workflow.py` – classifies questions to determine if they are answerable, off-topic, or need refinement.
+- **retrieve**:  
+  Managed by `document_utils.py` and `rag_workflow.py` – retrieves relevant documents from the vector store (ChromaDB) using HuggingFace embeddings.
+- **retrieval_grader**:  
+  Logic in `rag_workflow.py` – evaluates the quality of retrieved documents and decides the next step.
+- **refine_question**:  
+  If needed, handled in `rag_workflow.py` – asks the user for clarification or reformulates the question.
+- **generate_answer**:  
+  Uses Anthropic Claude (via `rag_workflow.py`) to generate a final answer based on retrieved context.
+- **cannot_answer**:  
+  Returns a fallback response if the system cannot answer (handled in `rag_workflow.py`).
+- **off_topic_response**:  
+  Returns a response for off-topic questions (handled in `rag_workflow.py`).
+
+**UI Integration:**  
+The user interface in `app.py` and `ui_components.py` interacts with this workflow, allowing users to upload documents, ask questions, and view responses in a modern chat interface.
+
+---
+
+**Note:**
+- Please save your workflow diagram as `rag_workflow.png` in a new `docs/` folder at your project root for the image to render correctly in the README. 
