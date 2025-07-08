@@ -1,4 +1,4 @@
-# 🤖 Multi-RAG Conversational Chatbot
+# 🤖 ChatWithPdf
 
 A sophisticated conversational chatbot built with Streamlit, LangChain, and LangGraph that allows you to upload documents and have intelligent conversations about their content.
 
@@ -157,7 +157,7 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 The following diagram illustrates the high-level workflow of the Retrieval-Augmented Generation (RAG) system implemented in this project:
 
-![RAG Workflow Diagram](https://github.com/user-attachments/assets/b473bcab-8bd3-4ab5-94af-4db1f8eb8bfe)
+![RAG Workflow Diagram](ChatWithPdf.png)
 
 **Diagram Node to Code Mapping:**
 
